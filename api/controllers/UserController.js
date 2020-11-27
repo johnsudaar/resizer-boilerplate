@@ -5,13 +5,22 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
+const passport = require("passport")
+
 module.exports = {
 
   /**
    * `UserController.login()`
    */
   login: async function (req, res) {
-    throw 'Not implemented';
+    passport.authenticate('local', function (err, user, info) {
+      if ((err) || (!user)) {
+        return res.redirect("/login")
+      } req.logIn(user, function (err) {
+        if (err) res.send(err);
+        return res.redirect("/");
+      });
+    })(req, res);
   },
 
   /**
