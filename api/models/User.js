@@ -8,7 +8,7 @@
 const bcrypt = require('bcrypt');
 
 module.exports = {
-
+  migrate: "safe",
   attributes: {
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
